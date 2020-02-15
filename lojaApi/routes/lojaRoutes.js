@@ -6,6 +6,7 @@ module.exports = function(app) {
   // List Routes
   app.route('/loja')
     .get(lojaController.list_all)
+  app.route('/loja/:name')
     .get(lojaController.list_by_name)
     .post(lojaController.save_loja);
 

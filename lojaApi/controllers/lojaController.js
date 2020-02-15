@@ -12,7 +12,7 @@ exports.list_all = function(req, res){
 };
 
 exports.list_by_name = function(req, res){
-    Loja.findOne(req.params.name,function(req,loja){
+    Loja.findOne(req.params.name,function(err,loja){
         if(err)
             res.send(err);
         res.json(loja);
