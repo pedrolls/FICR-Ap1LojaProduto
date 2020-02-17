@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 Produto = mongoose.model('produto');
 
 exports.list_all_products = function(req, res){
-    Produto.findAll({}, function(err, produto){
+    Produto.find({}, function(err, produto){
         if(err)
         res.send(err);
         res.json(produto);
@@ -12,7 +12,7 @@ exports.list_all_products = function(req, res){
 };
 
 exports.list_product_by_name = function(req, res){
-    Produto.findOne({_name},req.params.name,function(err,produto){
+    Produto.findOne({name: req.params.name},req.body,function(err,produto){
         if(err)
             res.send(err);
         res.json(produto);
